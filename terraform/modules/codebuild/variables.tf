@@ -20,14 +20,6 @@ variable "codebuild_project_name" {
     type = string
 }
 
-variable "github_repo_url" {
-    type = string
-}
-
-variable "source_type" {
-    type = string
-}
-
 variable "account_id" {
     type = string
 }

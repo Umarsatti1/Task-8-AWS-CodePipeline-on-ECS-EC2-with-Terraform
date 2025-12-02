@@ -146,12 +146,7 @@ variable "codebuild_iam_role" {
 
 variable "codebuild_project_name" {
     type        = string
-    description = "value"
-}
-
-variable "source_type" {
-    type        = string
-    description = "value"
+    description = "This is the CodeBuild project name"
 }
 
 variable "account_id" {

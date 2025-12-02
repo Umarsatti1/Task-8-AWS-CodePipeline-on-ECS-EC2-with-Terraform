@@ -61,8 +61,6 @@ module "codebuild" {
     source                 = "./modules/codebuild"
     codebuild_iam_role     = var.codebuild_iam_role
     codebuild_project_name = var.codebuild_project_name
-    github_repo_url        = var.github_repo_url
-    source_type            = var.source_type
     account_id             = var.account_id
     region                 = var.region
     codebuild_logs         = var.codebuild_logs

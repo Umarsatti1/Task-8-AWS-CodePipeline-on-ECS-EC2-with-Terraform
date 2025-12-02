@@ -86,7 +86,6 @@ resource "aws_iam_role_policy" "vpc_policy" {
   policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
-      # Required for VPC ENI operations
       {
         Effect = "Allow",
         Action = [
