@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Logging in to Amazon ECR..."
+      - aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com
+      - REPOSITORY_URI=$ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPOSITORY_NAME
+
+  build:
+    commands:
+      - echo "Building Docker image..."
+      - IMAGE_TAG=${CODEBUILD_RESOLVED_SOURCE_VERSION:-latest}
+      - docker build -t $REPOSITORY_URI:$IMAGE_TAG .
+
+  post_build:
+    commands:
+      - echo "Pushing Docker image..."
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+
+      - echo "Generating imagedefinitions.json for ECS..."
+      - printf '[{"name":"flask","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+
+      - echo "Build and push complete."
+
+artifacts:
+  files:
+    - imagedefinitions.json
