@@ -94,7 +94,6 @@ resource "aws_codepipeline" "pipeline" {
   }
 
   # Source Stage
-
   stage {
     name = "Source"
 

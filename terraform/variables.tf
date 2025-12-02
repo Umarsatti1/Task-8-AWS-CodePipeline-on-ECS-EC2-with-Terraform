@@ -151,17 +151,17 @@ variable "codebuild_project_name" {
 
 variable "account_id" {
     type        = string
-    description = "value"
+    description = "This is the AWS Account ID"
 }
 
 variable "region" {
     type        = string
-    description = "value"
+    description = "This is the AWS Region"
 }
 
 variable "codebuild_logs" {
     type        = string
-    description = "value"
+    description = "This is the CloudWatch Log group"
 }
 
 # CodePipeline Variables
@@ -186,10 +186,11 @@ variable "codepipeline_role_name" {
 }
 
 variable "pipeline_name" {
-    type = string
+    type        = string
+    description = "This is the CodePipeline name"
 }
 
 variable "github_repo_url" {
     type        = string
-    description = "value"
+    description = "This is the GitHub user/repo"
 }
