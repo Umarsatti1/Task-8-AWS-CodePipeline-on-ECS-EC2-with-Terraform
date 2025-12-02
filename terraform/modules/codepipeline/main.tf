@@ -55,7 +55,7 @@ resource "aws_iam_role_policy" "codepipeline_policy" {
             "codestar-connections:UseConnection"
         ]
         Resource = [
-            "${aws_codestarconnections_connection.github_connection.arn}"
+            aws_codestarconnections_connection.github_connection.arn
         ]
       },
       {
@@ -74,7 +74,8 @@ resource "aws_iam_role_policy" "codepipeline_policy" {
             "ecs:DescribeServices", 
             "ecs:DescribeTaskDefinition", 
             "ecs:RegisterTaskDefinition", 
-            "ecs:UpdateService"
+            "ecs:UpdateService",
+            "iam:PassRole"
         ]
         Resource = "*"
       }
@@ -98,7 +99,7 @@ resource "aws_codepipeline" "pipeline" {
     name = "Source"
 
     action {
-      name             = "GitHub_Source"
+      name             = "Source"
       category         = "Source"
       owner            = "AWS"
       provider         = "CodeStarSourceConnection"
@@ -119,7 +120,7 @@ resource "aws_codepipeline" "pipeline" {
     name = "Build"
 
     action {
-      name             = "CodeBuild"
+      name             = "Build"
       category         = "Build"
       owner            = "AWS"
       provider         = "CodeBuild"
@@ -139,7 +140,7 @@ resource "aws_codepipeline" "pipeline" {
     name = "Deploy"
 
     action {
-      name            = "ECS_Deploy"
+      name            = "Deploy"
       category        = "Deploy"
       owner           = "AWS"
       provider        = "ECS"
