@@ -71,3 +71,17 @@ module "codebuild" {
     private_sg_id          = module.vpc.ec2_ecs_sg_id
     repository_name        = module.ecr.ecr_repository_name
 }
+
+module "codepipeline" {
+    source                 = "./modules/codepipeline"
+    bucket_name            = var.bucket_name
+    connection             = var.connection
+    provider_type          = var.provider_type
+    codepipeline_role_name = var.codepipeline_role_name
+    pipeline_name          = var.pipeline_name
+    github_repo_url        = var.github_repo_url
+    codebuild_project_arn  = module.codebuild.codebuild_project_arn
+    codebuild_project_name = module.codebuild.codebuild_project_name
+    ecs_cluster_name       = module.ecs.ecs_cluster_name
+    ecs_service_name       = module.ecs.ecs_service_name
+}

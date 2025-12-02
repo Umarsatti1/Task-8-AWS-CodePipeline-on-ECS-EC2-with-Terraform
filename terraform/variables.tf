@@ -149,11 +149,6 @@ variable "codebuild_project_name" {
     description = "value"
 }
 
-variable "github_repo_url" {
-    type        = string
-    description = "value"
-}
-
 variable "source_type" {
     type        = string
     description = "value"
@@ -170,6 +165,36 @@ variable "region" {
 }
 
 variable "codebuild_logs" {
+    type        = string
+    description = "value"
+}
+
+# CodePipeline Variables
+variable "bucket_name" {
+    type        = string
+    description = "This is the S3 bucket for storing artifacts"
+}
+
+variable "connection" {
+    type        = string
+    description = "This is the GitHub and AWS connection"
+}
+
+variable "provider_type" {
+    type        = string
+    description = "This is the code source provider"
+}
+
+variable "codepipeline_role_name" {
+    type        = string
+    description = "This is the CodePipeline IAM Role name"
+}
+
+variable "pipeline_name" {
+    type = string
+}
+
+variable "github_repo_url" {
     type        = string
     description = "value"
 }
