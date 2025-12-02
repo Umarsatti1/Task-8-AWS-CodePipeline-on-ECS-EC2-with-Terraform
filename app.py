@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     main_heading = "Deploying an Application using AWS CodePipeline on ECS EC2 with Terraform"
-    secondary_heading = "The infrastructure is deployed using Terraform."
+    secondary_heading = "The infrastructure is deploy using Terraform"
     return f"""
     <!DOCTYPE html>
     <html lang="en">
