@@ -3,4 +3,3 @@
 **/.terraform/*
 *.tfvars.json
 *.terraform.lock.hcl
-*.tfvars

@@ -28,16 +28,16 @@ This project demonstrates a full CI/CD flow that builds, stores, and deploys a P
 
     project/
     │
-    │   app.py
-    │   Dockerfile
-    │   requirements.txt
+    │── app.py
+    │── Dockerfile
+    │── requirements.txt
     │
     └── terraform/
-        │   main.tf
-        │   terraform.tf
-        │   variables.tf
-        │   terraform.tfvars
-        │   outputs.tf
+        │── main.tf
+        │── terraform.tf
+        │── variables.tf
+        │── terraform.tfvars
+        │── outputs.tf
         │
         └── modules/
             ├── vpc/
