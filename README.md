@@ -1,4 +1,4 @@
-# TASK 8 — Deploying an Application using AWS CodePipeline on ECS EC2 with Terraform
+# TASK 8: Deploying an Application using AWS CodePipeline on ECS EC2 with Terraform
 
 ---
 
