@@ -31,6 +31,7 @@ This project demonstrates a full CI/CD flow that builds, stores, and deploys a P
     │── app.py
     │── Dockerfile
     │── requirements.txt
+    │── buildspec.yml
     │
     └── terraform/
         │── main.tf
